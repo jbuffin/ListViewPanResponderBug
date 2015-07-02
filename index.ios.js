@@ -37,7 +37,7 @@ var ListViewPanResponderBug = React.createClass({
 
   componentDidMount() {
     this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(['hello','hello','hello','hello','hello','hello','hello',]),
+      dataSource: this.state.dataSource.cloneWithRows(new Array(25).fill('hello')),
     });
   },
 
@@ -49,10 +49,10 @@ var ListViewPanResponderBug = React.createClass({
     };
   },
 
-  _renderRow(user) {
+  _renderRow(row) {
     return (
       <View>
-        <Text>Hello</Text>
+        <Text>{row}</Text>
       </View>
     );
   },
